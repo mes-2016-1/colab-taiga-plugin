@@ -2,20 +2,20 @@
 from django.utils.translation import ugettext_lazy as _
 from colab.plugins.utils.menu import colab_url_factory
 
-name = 'colab_taiga_plugin'
-verbose_name = 'Colab Taiga Plugin Plugin'
+name = 'colab_taiga'
+verbose_name = 'Taiga Plugin'
 
 upstream = 'localhost'
 # middlewares = []
 
 urls = {
-    'include': 'colab_taiga_plugin.urls',
-    'prefix': '^colab_taiga_plugin/',
+    'include': 'colab_taiga.urls',
+    'prefix': '^colab_taiga/',
 }
 
-menu_title = _('colab_taiga_plugin')
+menu_title = _('taiga')
 
-url = colab_url_factory('colab_taiga_plugin')
+url = colab_url_factory('taiga')
 
 # Extra data to be exposed to plugin app config
 extra = {}
