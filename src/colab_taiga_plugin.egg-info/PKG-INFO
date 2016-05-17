@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: colab-taiga-plugin
+Version: 0.1.0
+Summary: Colab Taiga Plugin Colab plugin
+Home-page: << project url/repo url >>
+Author: <<Author Name>>
+Author-email: <<Author email>>
+License: << project license >>
+Description: 
+        Colab Taiga Plugin Colab plugin
+        ===================================
+        
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development

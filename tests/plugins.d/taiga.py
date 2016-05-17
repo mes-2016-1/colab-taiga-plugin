@@ -10,7 +10,7 @@ upstream = 'localhost'
 
 urls = {
     'include': 'colab_taiga.urls',
-    'prefix': '^colab_taiga/',
+    'prefix': '^taiga/',
 }
 
 menu_title = _('taiga')
