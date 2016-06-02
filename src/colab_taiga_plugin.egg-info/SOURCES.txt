@@ -1,0 +1,13 @@
+src/colab_taiga/__init__.py
+src/colab_taiga/apps.py
+src/colab_taiga/data_importer.py
+src/colab_taiga/models.py
+src/colab_taiga/search_indexes.py
+src/colab_taiga/urls.py
+src/colab_taiga/views.py
+src/colab_taiga_plugin.egg-info/PKG-INFO
+src/colab_taiga_plugin.egg-info/SOURCES.txt
+src/colab_taiga_plugin.egg-info/dependency_links.txt
+src/colab_taiga_plugin.egg-info/not-zip-safe
+src/colab_taiga_plugin.egg-info/requires.txt
+src/colab_taiga_plugin.egg-info/top_level.txt
