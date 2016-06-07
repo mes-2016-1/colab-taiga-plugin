@@ -1,0 +1,9 @@
+{% load i18n tz highlight %}
+
+<div class="row">
+  <div class="col-md-12">
+    <h4><a href="{{result.url}}">
+      {% highlight result.title with query %}
+    </a></h4>
+  </div>
+</div>
