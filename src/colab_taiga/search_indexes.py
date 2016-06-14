@@ -2,13 +2,12 @@ from haystack import indexes
 from .models import TaigaProject
 
 class TaigaProjectIndex(indexes.SearchIndex, indexes.Indexable):
-	text = indexes.CharField(document=True, use_template=True)
-	title = indexes.CharField()
-	description = indexes.TextField()
-	# 
-	# Put taiga project attributes here
-	# 
+    text = indexes.CharField(document=True, use_template=True)
+    type = indexes.CharField(model_attr='type')
+    title = indexes.CharField(model_attr='title')
+    description = indexes.CharField(model_attr='description')
+    # Put taiga project attributes here
 
-	def get_model(self):
-		return TaigaProject
+    def get_model(self):
+        return TaigaProject
 
