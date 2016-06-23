@@ -7,7 +7,7 @@ class DashboardMostRelevantProjectsWidget(Widget):
     template = 'widgets/dashboard_most_relevant_projects.html'
 
     def generate_content(self, **kwargs):
-        projects = TaigaProject.all()
+        projects = TaigaProject.objects.all()
         kwargs['context']['projects'] = projects
 
         return super(DashboardMostRelevantProjectsWidget,
