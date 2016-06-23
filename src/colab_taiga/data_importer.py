@@ -38,6 +38,7 @@ class TaigaPluginDataImporter(PluginDataImporter):
                     id=json_project["id"])[0]
                 project.title = json_project['name']
                 project.description = json_project['description']
+                project.slug = json_project['slug']
                 try:
                     project.save()
                 except:

@@ -2,8 +2,10 @@
 
 <div class="row">
   <div class="col-md-12">
-    <h4><a href="{{result.url}}">
-      {% highlight result.title with query %}
-    </a></h4>
+    <h4>
+      <a href="/taiga/project/{{result.slug}}">{% highlight result.title with query %}</a>
+      <p><small>{{result.description}}</small></p>
+    </h4>
   </div>
+  <hr>
 </div>
