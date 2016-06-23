@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<head>
+</head>
+
+<body>
+  <h3 class="column-align">
+    {% trans "Most Relevant Projects" %}
+  </h3>
+  </a>
+  <ul class="message-list">
+    {% for project in projects %}
+      {% project.title %}
+    {% endfor %}
+  </ul>
+</body>
