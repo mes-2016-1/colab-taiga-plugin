@@ -1,13 +1,12 @@
 import urllib2
 import json
 import logging
-
 from colab.plugins.data import PluginDataImporter
-
 from colab_taiga.models import TaigaProject
 
 
 LOGGER = logging.getLogger('colab_taiga')
+
 
 class TaigaPluginDataImporter(PluginDataImporter):
     app_label = 'colab_taiga'
