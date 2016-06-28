@@ -39,7 +39,14 @@ class TaigaPluginDataImporter(PluginDataImporter):
                 project.title = json_project['name']
                 project.description = json_project['description']
                 try:
+                    members = TaigaUser.objects.filter(id__in = json_project['members'])
+
+                    for member in members:
+
+                        project.taigauser_set.add(member)
+
                     project.save()
+
                 except:
                     LOGGER.exception('Failed to import project with id=%s' %
                                      json_project["id"])
