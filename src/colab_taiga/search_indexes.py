@@ -1,6 +1,7 @@
 from haystack import indexes
 from .models import TaigaProject
 
+
 class TaigaProjectIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     type = indexes.CharField(model_attr='type')
@@ -10,4 +11,3 @@ class TaigaProjectIndex(indexes.SearchIndex, indexes.Indexable):
 
     def get_model(self):
         return TaigaProject
-

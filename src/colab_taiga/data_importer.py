@@ -9,6 +9,7 @@ from colab_taiga.models import TaigaProject, TaigaUser
 
 LOGGER = logging.getLogger('colab_taiga')
 
+
 class TaigaPluginDataImporter(PluginDataImporter):
     app_label = 'colab_taiga'
 
@@ -39,8 +40,8 @@ class TaigaPluginDataImporter(PluginDataImporter):
                 project.title = json_project['name']
                 project.description = json_project['description']
                 try:
-                    members = TaigaUser.objects.filter(id__in = json_project['members'])
-
+                    members = TaigaUser.objects.filter(
+                        id__in=json_project['members'])
                     for member in members:
 
                         project.taigauser_set.add(member)
@@ -70,7 +71,6 @@ class TaigaPluginDataImporter(PluginDataImporter):
                     LOGGER.exception('Failed to import user with id=%s' %
                                      json_user["id"])
                     continue
-
 
     def fetch_data(self):
         LOGGER.info('Importing Taiga data')

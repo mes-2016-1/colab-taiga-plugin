@@ -8,11 +8,9 @@ class TaigaProject(models.Model):
 
 
 class TaigaUser(models.Model):
-	type = u'user'
-	username =  models.CharField(max_length=30)
-	full_name = models.CharField(max_length=140)
-	bio = models.TextField()
-	is_active = models.BooleanField(default=True)
-	taiga_projects = models.ManyToManyField(TaigaProject)
-
-
+    type = u'user'
+    username = models.CharField(max_length=30)
+    full_name = models.CharField(max_length=140)
+    bio = models.TextField()
+    is_active = models.BooleanField(default=True)
+    taiga_projects = models.ManyToManyField(TaigaProject)
