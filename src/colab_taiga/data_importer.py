@@ -35,17 +35,20 @@ class TaigaPluginDataImporter(PluginDataImporter):
         while next_page:
             json_data, next_page = self.get_data(next_page)
             for json_project in json_data:
+
+                project_owner = TaigaUser.objects.get(pk = json_project['owner']['id'])
+                
                 project = TaigaProject.objects.get_or_create(
-                    id=json_project["id"])[0]
+                    id=json_project['id'], owner = project_owner)[0]
+
                 project.title = json_project['name']
                 project.description = json_project['description']
                 try:
                     members = TaigaUser.objects.filter(
                         id__in=json_project['members'])
                     for member in members:
-
-                        project.taigauser_set.add(member)
-
+                        project.users.add(member)
+                
                     project.save()
 
                 except:
