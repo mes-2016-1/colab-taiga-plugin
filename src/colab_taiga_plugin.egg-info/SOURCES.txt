@@ -5,6 +5,11 @@ src/colab_taiga/models.py
 src/colab_taiga/search_indexes.py
 src/colab_taiga/urls.py
 src/colab_taiga/views.py
+src/colab_taiga/migrations/0001_initial.py
+src/colab_taiga/migrations/0002_taigaproject_slug.py
+src/colab_taiga/migrations/__init__.py
+src/colab_taiga/widgets/__init__.py
+src/colab_taiga/widgets/dashboard_most_relevant_projects.py
 src/colab_taiga_plugin.egg-info/PKG-INFO
 src/colab_taiga_plugin.egg-info/SOURCES.txt
 src/colab_taiga_plugin.egg-info/dependency_links.txt

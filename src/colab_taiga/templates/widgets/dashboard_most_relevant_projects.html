@@ -10,7 +10,9 @@
   </a>
   <ul class="message-list">
     {% for project in projects %}
-      {{ project.title }}
+      <a href="/taiga/project/{{project.slug}}">
+        <span class="label label-primary">{{ project.title }}</span>
+      </a>
     {% endfor %}
   </ul>
 </body>
