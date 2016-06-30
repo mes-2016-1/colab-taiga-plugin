@@ -2,7 +2,7 @@ import urllib2
 import json
 import logging
 from colab.plugins.data import PluginDataImporter
-from colab_taiga.models import TaigaProject, TaigaUser
+from colab_taiga.models import TaigaProject, TaigaUser, TaigaUserStory
 
 
 LOGGER = logging.getLogger('colab_taiga')
@@ -34,10 +34,10 @@ class TaigaPluginDataImporter(PluginDataImporter):
             json_data, next_page = self.get_data(next_page)
             for json_project in json_data:
 
-                project_owner = TaigaUser.objects.get(pk = json_project['owner']['id'])
+                project_owner = TaigaUser.objects.get(pk=json_project['owner']['id'])
 
                 project = TaigaProject.objects.get_or_create(
-                    id=json_project['id'], owner = project_owner)[0]
+                    id=json_project['id'], owner=project_owner)[0]
 
                 project.title = json_project['name']
                 project.description = json_project['description']
@@ -47,7 +47,6 @@ class TaigaPluginDataImporter(PluginDataImporter):
                         id__in=json_project['members'])
                     for member in members:
                         project.users.add(member)
-                
                     project.save()
 
                 except:
@@ -72,6 +71,27 @@ class TaigaPluginDataImporter(PluginDataImporter):
                 except:
                     LOGGER.exception('Failed to import user with id=%s' %
                                      json_user["id"])
+
+    def fetch_user_stories(self):
+        next_page = self.build_url('/api/v1/userstories')
+
+        while next_page:
+            json_data, next_page = self.get_data(next_page)
+            for json_user_story in json_data:
+                user_story_project = TaigaProject.objects.get(
+                    pk=json_user_story['project'])
+                user_story = TaigaUserStory.objects.get_or_create(
+                    id=json_user_story["id"], project=user_story_project)[0]
+                user_story.subject = json_user_story['subject']
+                user_story.total_points = json_user_story['total_points']
+                user_story.milestone = json_user_story['milestone']
+                user_story.assigned_to = json_user_story['assigned_to']
+                user_story.is_closed = json_user_story['is_closed']
+                try:
+                    user_story.save()
+                except:
+                    LOGGER.exception('Failed to import user_story with id=%s' %
+                                     json_user_story["id"])
                     continue
 
     def fetch_data(self):
@@ -79,5 +99,6 @@ class TaigaPluginDataImporter(PluginDataImporter):
         LOGGER.info('Importing Projects...')
         self.fetch_users()
         self.fetch_projects()
+        self.fetch_user_stories()
 
         LOGGER.info('Data imported')
