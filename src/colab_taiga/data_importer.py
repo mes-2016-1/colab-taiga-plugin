@@ -42,9 +42,11 @@ class TaigaPluginDataImporter(PluginDataImporter):
                 project.title = json_project['name']
                 project.description = json_project['description']
                 project.slug = json_project['slug']
+                project.modified_date = json_project['modified_date']
+                project.default_priority = json_project['default_priority']
 
                 members = json_project['members']
-                project = add_users_to_project(project, members)
+                project = self.add_users_to_project(project, members)
 
                 try:
                     project.save()

@@ -1,0 +1,8 @@
+msgid "Most Relevant Projects"
+msgstr "Projetos Mais Relevantes"
+
+msgid "owner"
+msgstr "dono"
+
+msgid "ago"
+msgstr "atrás"

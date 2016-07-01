@@ -13,9 +13,7 @@ class DashboardMostRelevantProjectsWidget(Widget):
             logged_colab_user = kwargs['context']['user']
             logged_taiga_user = TaigaUser.objects.filter(username = \
                 logged_colab_user.username)[0]
-            print(logged_taiga_user.username)
             projects = logged_taiga_user.projects.all()
-            print(projects)
         
         kwargs['context']['projects'] = projects
 

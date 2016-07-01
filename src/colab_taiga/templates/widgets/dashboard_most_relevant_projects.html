@@ -28,6 +28,10 @@
           {% else %}
             <span class="pull-left">{% trans "owner" %} {% trans "Anonymous" %}</span>
           {% endif %}
+
+          {% if project.modified_date %}
+            <span class="pull-right">{{ project.modified_date|timesince }} {% trans "ago" %}</span>
+          {% endif %}
         </div>
       </li>
     {% endfor %}
