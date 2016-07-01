@@ -94,8 +94,8 @@ class TaigaPluginDataImporter(PluginDataImporter):
             try:
                 user.save()
             except:
-                LOGGER.exception('Failed to import user with id=%s' %
-                                    json_user["id"])
+                LOGGER.exception('Failed to map projects to user with id=%s' %
+                                    user.id)
                 continue
 
     def fetch_data(self):
