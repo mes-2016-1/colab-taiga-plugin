@@ -3,6 +3,7 @@
     xmlns:css="http://namespaces.plone.org/diazo/css"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-	<before css:theme-children="#template-head" css:content-children="head" />
-	<before css:theme-children="#template-body" css:content-children="body" />
+    <before theme-children="/html/head" content-children="/html/head" />
+    <before css:theme-children="#main-content" css:content-children="body" />
+
 </rules>

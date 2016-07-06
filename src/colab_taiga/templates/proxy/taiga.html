@@ -1,7 +1,19 @@
-<!DOCTYPE html>
-<html>
-	<head id="template-head">
-	</head>
-	<body id="template-body">
-	</body>
-</html>
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block navbar %}
+<div class="colab-style">
+  {{ block.super }}
+</div>
+{% endblock %}
+
+{% block footer %}
+<div class="colab-style">
+  {{ block.super }}
+</div>
+{% endblock %}
+
+{% block footer_js %}
+{{ block.super }}
+  <script src="{% static 'taiga/js/bootstrap.min.js' %}"></script>
+{% endblock %}
