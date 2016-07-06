@@ -2,8 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import datetime
-from django.utils.timezone import utc
 
 
 class Migration(migrations.Migration):
@@ -16,13 +14,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='taigaproject',
             name='default_priority',
-            field=models.IntegerField(default=2),
-            preserve_default=False,
+            field=models.IntegerField(null=True),
+            preserve_default=True,
         ),
         migrations.AddField(
             model_name='taigaproject',
             name='modified_date',
-            field=models.DateTimeField(default=datetime.datetime(2016, 7, 1, 3, 16, 20, 661051, tzinfo=utc)),
-            preserve_default=False,
+            field=models.DateTimeField(null=True),
+            preserve_default=True,
         ),
     ]

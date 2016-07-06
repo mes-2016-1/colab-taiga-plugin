@@ -13,7 +13,8 @@ class DashboardMostRelevantProjectsWidget(Widget):
             logged_colab_user = kwargs['context']['user']
             logged_taiga_user = TaigaUser.objects.filter(username = \
                 logged_colab_user.username)[0]
-            projects = logged_taiga_user.projects.all()
+            print(logged_taiga_user)
+            projects = logged_taiga_user.projects.all().order_by('-modified_date')
         
         kwargs['context']['projects'] = projects
 
