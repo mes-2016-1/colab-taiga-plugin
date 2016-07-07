@@ -16,6 +16,8 @@ class TaigaProject(models.Model):
     slug = models.TextField(blank=False, null=True)
     owner = models.ForeignKey(to=TaigaUser, related_name='own_projects')
     users = models.ManyToManyField(TaigaUser, related_name='projects')
+    modified_date = models.DateTimeField(null=True)
+    default_priority = models.IntegerField(null=True)
 
 
 class TaigaUserStory(models.Model):

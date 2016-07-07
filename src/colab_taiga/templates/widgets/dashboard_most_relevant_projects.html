@@ -10,9 +10,30 @@
   </a>
   <ul class="message-list">
     {% for project in projects %}
-      <a href="/taiga/project/{{project.slug}}">
-        <span class="label label-primary">{{ project.title }}</span>
-      </a>
+      <li class="preview-message">
+        <a href="/taiga/project/{{project.slug}}">
+          <span class="label label-primary">
+            {{project.title}}
+          </span>
+          <span class="subject">
+            {{project.description|escape|truncatechars:150 }}
+          </span>
+        </a>
+        <div class="quiet">
+          {% if project.owner %}
+            <span class="pull-left">
+                {% trans "owner" %}
+                {{ project.owner.full_name }}
+            </span>
+          {% else %}
+            <span class="pull-left">{% trans "owner" %} {% trans "Anonymous" %}</span>
+          {% endif %}
+
+          {% if project.modified_date %}
+            <span class="pull-right">{{ project.modified_date|timesince }} {% trans "ago" %}</span>
+          {% endif %}
+        </div>
+      </li>
     {% endfor %}
   </ul>
 </body>
