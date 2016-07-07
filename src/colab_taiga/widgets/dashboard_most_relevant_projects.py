@@ -14,7 +14,7 @@ class DashboardMostRelevantProjectsWidget(Widget):
             logged_taiga_user = TaigaUser.objects.filter(username = \
                 logged_colab_user.username)[0]
             print(logged_taiga_user)
-            projects = logged_taiga_user.projects.all().order_by('-modified_date')
+            projects = logged_taiga_user.projects.all().order_by('default_priority')
         
         kwargs['context']['projects'] = projects
 
