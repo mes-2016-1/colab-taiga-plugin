@@ -1,0 +1,36 @@
+{% load i18n %}
+
+<body>
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <h3>
+      {% trans "User Stories" %}
+    </h3>
+    </a>
+    <ul class="message-list">
+      {% for user_story in user_stories %}
+        <li class="preview-message">
+          <a href="/taiga/project/{{user_story.project.slug}}/us/{{user_story.ref}}">
+            <span class="label label-primary">
+              {{user_story.subject|escape|truncatechars:150}}
+            </span>
+            <span class="subject">
+              {{user.story.total_points}}
+            </span>
+          </a>
+          <div class="quiet">
+            {% if user_story.project %}
+              <span class="pull-left">
+                  {% trans "project" %}
+                  {{ user_story.project.title }}
+              </span>
+            {% endif %}
+
+            <!--{% if user_story.modified_date %}
+              <span class="pull-right">{{ user_story.modified_date|timesince }} {% trans "ago" %}</span>
+            {% endif %}-->
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
