@@ -26,6 +26,7 @@ class TaigaUserStory(models.Model):
     total_points = models.TextField(blank=True, null=True)
     milestone = models.TextField(blank=True, null=True)
     is_closed = models.BooleanField(default=False)
+    ref = models.IntegerField(null=True)
     assigned_to = models.ForeignKey(to=TaigaUser, related_name='own_userstory',
                                     null=True)
-    project = models.ForeignKey(TaigaProject, on_delete=models.CASCADE)
+    project = models.ForeignKey(to=TaigaProject, on_delete=models.CASCADE)

@@ -88,16 +88,21 @@ class TaigaPluginDataImporter(PluginDataImporter):
             for json_user_story in json_data:
                 user_story_project = TaigaProject.objects.get(
                     pk=json_user_story['project'])
+
+                user_story_assigned_to = None
                 if json_user_story['assigned_to']:
                     user_story_assigned_to = TaigaUser.objects.get(
                         pk=json_user_story['assigned_to'])
+
                 user_story = TaigaUserStory.objects.get_or_create(
-                    id=json_user_story["id"], project=user_story_project,
-                    assigned_to=user_story_assigned_to)[0]
+                    id=json_user_story["id"], project=user_story_project)[0]
                 user_story.subject = json_user_story['subject']
                 user_story.total_points = json_user_story['total_points']
                 user_story.milestone = json_user_story['milestone']
                 user_story.is_closed = json_user_story['is_closed']
+                user_story.ref = json_user_story['ref']
+                user_story.assigned_to = user_story_assigned_to
+
                 try:
                     user_story.save()
                 except:

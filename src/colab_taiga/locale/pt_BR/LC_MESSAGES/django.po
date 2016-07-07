@@ -6,3 +6,9 @@ msgstr "dono"
 
 msgid "ago"
 msgstr "atrás"
+
+msgid "User Stories"
+msgstr "Histórias de Usuário"
+
+msgid "project"
+msgstr "projeto"
