@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
 
-{% block navbar %}
+{% block head_css %}
+  <link href="{% static 'taiga/css/bootstrap-colab-style.css' %}"
+    media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="{% static 'taiga/css/colab-taiga.css' %}"
+    rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block header %}
 <div class="colab-style">
   {{ block.super }}
 </div>
@@ -15,5 +22,5 @@
 
 {% block footer_js %}
 {{ block.super }}
-  <script src="{% static 'taiga/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'taiga/js/colab_integration.js' %}"></script>
 {% endblock %}

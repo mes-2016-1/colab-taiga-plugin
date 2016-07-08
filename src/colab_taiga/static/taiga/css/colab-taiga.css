@@ -1,0 +1,8 @@
+.colab-style .wrapper {
+  display: block;
+  min-height: 0;
+}
+
+.colab-style .navbar img {
+  padding-left: 0;
+}

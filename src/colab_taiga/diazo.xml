@@ -6,4 +6,9 @@
     <before theme-children="/html/head" content-children="/html/head" />
     <before css:theme-children="#main-content" css:content-children="body" />
 
+    <drop css:theme="link[href^='/static/third-party/bootstrap/css/bootstrap.min']" />
+    <drop css:theme="link[href^='/static/third-party/font-awesome/css/font-awesome.min']" />
+
+    <drop css:content="div" attributes="tg-navigation-bar" />
+    <drop css:theme="#main-content" attributes="class" />
 </rules>
