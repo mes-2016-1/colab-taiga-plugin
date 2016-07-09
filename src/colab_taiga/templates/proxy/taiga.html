@@ -1,7 +1,27 @@
-<!DOCTYPE html>
-<html>
-	<head id="template-head">
-	</head>
-	<body id="template-body">
-	</body>
-</html>
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block head_css %}
+  <link href="{% static 'taiga/css/bootstrap-colab-style.css' %}"
+    media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="{% static 'taiga/css/colab-taiga.css' %}"
+    rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block header %}
+  <div class="colab-style">
+    {{ block.super }}
+  </div>
+{% endblock %}
+
+{% block footer %}
+  <div class="colab-style">
+    {{ block.super }}
+  </div>
+{% endblock %}
+
+{% block footer_js %}
+  <script src="{% static 'taiga/js/colab_integration.js' %}"></script>
+  <script src="{% static 'taiga/js/jquery.cookie.js' %}"></script>
+  {{ block.super }}
+{% endblock %}

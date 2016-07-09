@@ -1,0 +1,14 @@
+.colab-style .wrapper {
+  display: block;
+  min-height: 0;
+}
+
+.colab-style .navbar img {
+  padding-left: 0;
+}
+
+.colab-style .dropdown-menu .active,
+.colab-style .dropdown-menu li:hover {
+  background-color: #fff;
+  color: inherit;
+}
