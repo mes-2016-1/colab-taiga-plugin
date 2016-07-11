@@ -11,8 +11,8 @@ class DashboardMostRelevantProjectsWidget(Widget):
 
         if kwargs['context']['user'].is_authenticated():
             logged_colab_user = kwargs['context']['user']
-            logged_taiga_user = TaigaUser.objects.filter(username = \
-                logged_colab_user.username)[0]
+            logged_taiga_user = TaigaUser.objects.get(username = \
+                logged_colab_user.username)
             projects = logged_taiga_user.projects.all().order_by('default_priority')
         
         kwargs['context']['projects'] = projects

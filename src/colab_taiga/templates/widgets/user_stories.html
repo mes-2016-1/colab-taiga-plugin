@@ -24,10 +24,8 @@
                   {{ user_story.project.title }}
               </span>
             {% endif %}
-
-            <!--{% if user_story.modified_date %}
-              <span class="pull-right">{{ user_story.modified_date|timesince }} {% trans "ago" %}</span>
-            {% endif %}-->
+            {% empty %}
+              <li>{% trans "There are no user stories by this user so far." %}</li>
           </div>
         </li>
       {% endfor %}
