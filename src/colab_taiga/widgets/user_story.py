@@ -11,8 +11,8 @@ class UserStoriesWidget(Widget):
 
         if kwargs['context']['user'].is_authenticated():
             logged_colab_user = kwargs['context']['user']
-            logged_taiga_user = TaigaUser.objects.filter(username = \
-                logged_colab_user.username)[0]
+            logged_taiga_user = TaigaUser.objects.get(username = \
+                logged_colab_user.username)
             user_stories = logged_taiga_user.own_userstory.filter(is_closed = False).order_by('total_points')
         
         kwargs['context']['user_stories'] = user_stories

@@ -32,6 +32,8 @@
           {% if project.modified_date %}
             <span class="pull-right">{{ project.modified_date|timesince }} {% trans "ago" %}</span>
           {% endif %}
+          {% empty %}
+            <li>{% trans "There are no projects by this user so far." %}</li>
         </div>
       </li>
     {% endfor %}

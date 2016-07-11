@@ -12,3 +12,9 @@ msgstr "Histórias de Usuário"
 
 msgid "project"
 msgstr "projeto"
+
+msgid "There are no projects by this user so far."
+msgstr "Não há projetos deste usuário até agora."
+
+msgid "There are no user stories by this user so far."
+msgstr "Não há user stories deste usuário até agora."
